@@ -47,6 +47,7 @@ export default function App() {
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL || '/api'
+      console.log('Using API URL:', apiUrl) // Debug log
       const res = await axios.post(`${apiUrl}/query`, { query: text })
       const data = res?.data
       if (!data) {
