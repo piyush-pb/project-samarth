@@ -35,9 +35,11 @@ Since Netlify doesn't support Python servers, deploy the backend separately.
    - Connect your GitHub repo
 
 2. **Configure:**
-   - **Build Command:** `cd backend && pip install -r requirements.txt`
-   - **Start Command:** `cd backend && python -m uvicorn src.main:app --host 0.0.0.0 --port $PORT`
-   - **Environment:** Python 3
+   - **Root Directory:** `backend`
+   - **Build Command:** `pip install --upgrade pip && pip install -r requirements.txt`
+   - **Start Command:** `python -m uvicorn src.main:app --host 0.0.0.0 --port $PORT`
+   - **Environment:** Python 3.11
+   - **Note:** If you get Rust compilation errors, use Python 3.11 (specified in `runtime.txt`)
 
 3. **Set Environment Variables:**
    - `GOOGLE_API_KEY` - Your Google Gemini API key
