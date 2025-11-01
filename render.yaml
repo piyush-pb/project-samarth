@@ -2,7 +2,7 @@ services:
   - type: web
     name: project-samarth-api
     env: python
-    pythonVersion: 3.11
+    pythonVersion: 3.10
     region: oregon
     plan: free
     rootDir: backend
