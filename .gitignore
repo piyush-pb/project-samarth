@@ -49,4 +49,6 @@ npm-debug.log*
 # Build outputs
 *.pyc
 .pytest_cache/
+frontend/dist/
+frontend/.vite/
 

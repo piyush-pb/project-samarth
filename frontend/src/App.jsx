@@ -46,7 +46,8 @@ export default function App() {
     setInput('')
 
     try {
-      const res = await axios.post('/api/query', { query: text })
+      const apiUrl = import.meta.env.VITE_API_URL || '/api'
+      const res = await axios.post(`${apiUrl}/query`, { query: text })
       const data = res?.data
       if (!data) {
         const errMsg = 'No response received'
