@@ -46,7 +46,11 @@ export default function App() {
     setInput('')
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || '/api'
+      let apiUrl = import.meta.env.VITE_API_URL || '/api'
+      // If it's a full URL (production), append /api if not already present
+      if (apiUrl.startsWith('http') && !apiUrl.endsWith('/api')) {
+        apiUrl = apiUrl.endsWith('/') ? `${apiUrl}api` : `${apiUrl}/api`
+      }
       console.log('Using API URL:', apiUrl) // Debug log
       const res = await axios.post(`${apiUrl}/query`, { query: text })
       const data = res?.data
